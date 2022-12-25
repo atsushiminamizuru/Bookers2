@@ -9,15 +9,29 @@ class BooksController < ApplicationController
     @book.save
     redirect_to book_path
   end
-
-  def show
+  
+  def index
     @books = Book.all
   end
 
-  def index
+  def show
+    @book = Book.find(params:[:id])
   end
   
-   private
+  def edit
+  end
+  
+  def update
+  end
+  
+  def destroy
+    @book = Book.find(params:[:id])
+    @book.destroy
+    redirect_to books_path
+  end
+  
+  
+  private
 
   def book_params
     params.require(:book).permit(:Title, :Body)

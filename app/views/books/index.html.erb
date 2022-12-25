@@ -1,8 +1,25 @@
-<% @books.each do |book| %>
-<div>
-  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
-  <p>ユーザーネーム：<%= book.user.name %></p>
-  <p>Title<%= book.name %></p>
-  <p>Opinion<%= book.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
-</div>
+<main>
+<h1>Books</h1>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @books.each do |book| %>
+        <tr>
+            <td>
+              <%= link_to user_path(book.id) do %>
+                <%= image_tag 'book.user.get_profile_image(100, 100)' %>
+              <% end %>
+            </td>
+            <td><%= link_to "book.Title", book_path %></td>
+            <td><%= book.Body %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</main>
