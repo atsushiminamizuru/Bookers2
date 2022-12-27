@@ -25,7 +25,7 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user.id) ,class: "text-light nav-link" do %>
-            <i class="fas fa-home"></i> HOME
+            <i class="fas fa-home"></i> Home
             <% end %>
           </li>
           <li>
@@ -46,7 +46,7 @@
         <% else %>
           <li>
             <%= link_to root_path,class: "text-light nav-link" do %>
-            <i class="fas fa-home"></i> HOME
+            <i class="fas fa-home"></i> Home
             <% end %>
           </li>
           <li>
