@@ -20,24 +20,25 @@
             </tbody>
           </table>
           <div class="row">
-            <div class="btn btn-outline-secondary btn-block">
             <%= link_to edit_user_path(@user.id) do %>
-            <i class="fas fa-user-cog"></i>
+            <div class="btn btn-outline-secondary btn-block">
+            <i class="fas fa-user-cog"></i></div>
             <% end %>
-            </div>
           </div>
           <h2 class="mt-3">New book</h2>
           <%= form_with model: @book do |f| %>
-          <div>Title<br>
-          <%= f.text_field :Title %>
+          <div class="form-group">
+            <label for="book_title">Title</label><br>
+            <%= f.text_field :Title %>
           </div>
-          <div>Opinion<br>
-          <%= f.text_area :Body %>
+          <div class="form-group">
+            <label for="book_opinion">Opinion</label><br>
+            <%= f.text_area :Body %>
           </div>
-          <div>
-          <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+          <div class="form-group">
+            <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+          </div>
           <% end %>
-          </div>
         </div>
 
         <div class="col-md-8 offset-md-1">

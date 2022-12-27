@@ -28,16 +28,18 @@
           </div>
           <h2 class="mt-3">New book</h2>
           <%= form_with model: @book_new do |f| %>
-          <div>Title<br>
-          <%= f.text_field :Title %>
+          <div class="form-group">
+            <label for="book_title">Title</label><br>
+            <%= f.text_field :Title %>
           </div>
-          <div>Opinion<br>
-          <%= f.text_area :Body %>
+          <div class="form-group">
+            <label for="book_opinion">Opinion</label><br>
+            <%= f.text_area :Body %>
           </div>
-          <div>
-          <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+          <div class="form-group">
+            <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+          </div>
           <% end %>
-          </div>
         </div>
 
         <div class="col-md-8 offset-md-1">
@@ -54,8 +56,16 @@
                 <td><%= @book.Title %></td>
                 <td><%= @book.Body %></td>
                 <% if @book.user == current_user %>
-                <td><%= link_to "Edit",edit_book_path(@book.id) %></td>
-                <td><%= link_to "Destroy",books_path,method: :delete,"data-confirm" => "本当に消しますか？" %></td>
+                <td>
+                  <%= link_to edit_book_path(@book.id) do %>
+                  <div class="btn btn-sm btn-success"><%= 'Edit' %></div>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to books_path,method: :delete,"data-confirm" => "本当に消しますか？" %>
+                  <div class="btn btn-sm btn-danger"><%= 'Destroy' %></div>
+                  <% end %>
+                </td>
                 <% end %>
               </tr>
             </tbody>
