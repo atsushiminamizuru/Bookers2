@@ -20,11 +20,9 @@
             </tbody>
           </table>
           <div class="row">
-            <div class="btn btn-outline-secondary btn-block">
-            <%= link_to edit_user_path(@book.user.id) do %>
+            <%= link_to edit_user_path(@book.user.id),class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-cog"></i>
             <% end %>
-            </div>
           </div>
           <h2 class="mt-3">New book</h2>
           <%= form_with model: @book_new do |f| %>
@@ -57,14 +55,10 @@
                 <td><%= @book.Body %></td>
                 <% if @book.user == current_user %>
                 <td>
-                  <%= link_to edit_book_path(@book.id) do %>
-                  <div class="btn btn-sm btn-success"><%= 'Edit' %></div>
-                  <% end %>
+                  <%= link_to "Edit",edit_book_path(@book.id),class: "btn btn-sm btn-success" %>
                 </td>
                 <td>
-                  <%= link_to books_path,method: :delete,"data-confirm" => "本当に消しますか？" %>
-                  <div class="btn btn-sm btn-danger"><%= 'Destroy' %></div>
-                  <% end %>
+                  <%= link_to "Destroy",book_path,class: "btn btn-sm btn-danger",method: :delete,"data-confirm" => "本当に消しますか？" %>
                 </td>
                 <% end %>
               </tr>
